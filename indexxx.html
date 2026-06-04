@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaMind AI Super App</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+color:white;
+}
+
+/* BACKGROUND */
+#bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+transition:2s ease-in-out;
+z-index:-2;
+}
+
+#overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:-1;
+}
+
+/* HEADER */
+.topBar{
+text-align:center;
+padding:18px;
+font-size:22px;
+font-weight:bold;
+background:rgba(0,0,0,0.7);
+}
+
+.greet{
+text-align:center;
+color:#93c5fd;
+margin-top:5px;
+}
+
+.contactBar{
+text-align:center;
+padding:10px;
+background:#111827;
+}
+
+/* BUTTONS */
+button{
+padding:10px;
+margin:5px;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.blue{background:#2563eb;color:white;width:100%}
+.green{background:#16a34a;color:white;width:100%}
+.orange{background:#f59e0b;color:black}
+
+.page{display:none;padding:20px;}
+.active{display:block}
+
+.homeBox{
+width:420px;
+margin:auto;
+margin-top:40px;
+background:#111827;
+padding:25px;
+border-radius:15px;
+text-align:center;
+}
+
+.box{
+background:#111827;
+padding:20px;
+border-radius:15px;
+width:520px;
+margin:auto;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:none;
+background:#0b1220;
+color:white;
+}
+
+.result{
+background:#0b1220;
+padding:10px;
+margin-top:10px;
+border-radius:10px;
+text-align:left;
+}
+
+.mathGrid{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.card{
+width:300px;
+background:#111827;
+padding:15px;
+border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div id="bg"></div>
+<div id="overlay"></div>
+
+<!-- HEADER -->
+<div class="topBar">
+🤖 EMMYLANSROCK ENGINE — NovaMind AI Super App
+</div>
+
+<div class="greet" id="greet"></div>
+
+<div class="contactBar">
+📞 0791953420 |
+<a href="https://wa.me/250734822070" target="_blank" style="color:#25D366;text-decoration:none;">
+🟢 WhatsApp Chat
+</a>
+</div>
+
+<!-- HOME -->
+<div id="home" class="page active">
+<div class="homeBox">
+<h2>🌟 NovaMind AI Super App</h2>
+<button class="blue" onclick="openPage('english')">📚 English AI</button>
+<button class="green" onclick="openPage('math')">📐 Math AI</button>
+</div>
+</div>
+
+<!-- ENGLISH -->
+<div id="english" class="page">
+<button class="orange" onclick="openPage('home')">🏠 Home</button>
+
+<div class="box">
+<h2>📚 English AI</h2>
+<input id="word" placeholder="type verb">
+
+<button onclick="smartAI()">Search</button>
+<button onclick="speak()">🔊 Speak</button>
+
+<div class="result" id="res">Ready...</div>
+</div>
+</div>
+
+<!-- MATH -->
+<div id="math" class="page">
+<button class="orange" onclick="openPage('home')">🏠 Home</button>
+
+<div class="mathGrid">
+
+<div class="card">
+<h3>📊 Arithmetic</h3>
+<input id="expr" placeholder="12+34-11">
+
+<button onclick="addSymbol('1')">1</button>
+<button onclick="addSymbol('2')">2</button>
+<button onclick="addSymbol('3')">3</button>
+<button onclick="addSymbol('4')">4</button>
+<button onclick="addSymbol('5')">5</button>
+<button onclick="addSymbol('6')">6</button>
+<button onclick="addSymbol('7')">7</button>
+<button onclick="addSymbol('8')">8</button>
+<button onclick="addSymbol('9')">9</button>
+<button onclick="addSymbol('0')">0</button>
+
+<button onclick="addSymbol('+')">+</button>
+<button onclick="addSymbol('-')">-</button>
+<button onclick="addSymbol('*')">×</button>
+<button onclick="addSymbol('/')">÷</button>
+
+<button onclick="clearExpr()">C</button>
+<button onclick="calculate()">= RESULT</button>
+
+<div class="result" id="r1"></div>
+</div>
+
+<div class="card">
+<h3>📐 Trigonometry</h3>
+<input id="ang" placeholder="Enter angle">
+<button onclick="getAllTrig()">GET RESULTS</button>
+<div class="result" id="r2"></div>
+</div>
+
+<div class="card">
+<h3>📦 Geometry</h3>
+<button onclick="shape('square')">Square</button>
+<button onclick="shape('rect')">Rectangle</button>
+<button onclick="shape('circle')">Circle</button>
+<button onclick="shape('triangle')">Triangle</button>
+<button onclick="shape('tube')">Tube</button>
+<div class="result" id="r3"></div>
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* NAV */
+function openPage(p){
+document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+document.getElementById(p).classList.add('active');
+}
+
+/* GREETING */
+let h=new Date().getHours();
+document.getElementById("greet").innerText =
+h<12?"🌿 Good Morning":h<18?"🌤 Good Afternoon":"🌙 Good Evening";
+
+/* ENGLISH (FULL VERB SYSTEM YOU PROVIDED) */
+const verbs={
+go:{present:"go",past:"went",future:"will go",continuous:"going",rw:"genda"},
+come:{present:"come",past:"came",future:"will come",continuous:"coming",rw:"kuza"},
+see:{present:"see",past:"saw",future:"will see",continuous:"seeing",rw:"kubona"},
+take:{present:"take",past:"took",future:"will take",continuous:"taking",rw:"gufata"},
+make:{present:"make",past:"made",future:"will make",continuous:"making",rw:"gukora"},
+do:{present:"do",past:"did",future:"will do",continuous:"doing",rw:"gukora"},
+get:{present:"get",past:"got",future:"will get",continuous:"getting",rw:"kubona"},
+have:{present:"have",past:"had",future:"will have",continuous:"having",rw:"kugira"},
+give:{present:"give",past:"gave",future:"will give",continuous:"giving",rw:"gutanga"},
+put:{present:"put",past:"put",future:"will put",continuous:"putting",rw:"gushyira"},
+send:{present:"send",past:"sent",future:"will send",continuous:"sending",rw:"kohereza"},
+buy:{present:"buy",past:"bought",future:"will buy",continuous:"buying",rw:"kugura"},
+sell:{present:"sell",past:"sold",future:"will sell",continuous:"selling",rw:"kugurisha"},
+work:{present:"work",past:"worked",future:"will work",continuous:"working",rw:"gukora"},
+study:{present:"study",past:"studied",future:"will study",continuous:"studying",rw:"kwiga"},
+learn:{present:"learn",past:"learned",future:"will learn",continuous:"learning",rw:"kwiga"},
+speak:{present:"speak",past:"spoke",future:"will speak",continuous:"speaking",rw:"kuvuga"},
+think:{present:"think",past:"thought",future:"will think",continuous:"thinking",rw:"gutekereza"},
+eat:{present:"eat",past:"ate",future:"will eat",continuous:"eating",rw:"kurya"},
+drink:{present:"drink",past:"drank",future:"will drink",continuous:"drinking",rw:"kunywa"},
+run:{present:"run",past:"ran",future:"will run",continuous:"running",rw:"kwiruka"},
+walk:{present:"walk",past:"walked",future:"will walk",continuous:"walking",rw:"kugenda"}
+};
+
+function smartAI(){
+let v=document.getElementById("word").value.toLowerCase().trim();
+if(verbs[v]){
+let d=verbs[v];
+document.getElementById("res").innerHTML=
+`Present:${d.present}<br>Past:${d.past}<br>Future:${d.future}<br>Continuous:${d.continuous}<br>Kinyarwanda:${d.rw}`;
+}else{
+document.getElementById("res").innerText="Verb not found";
+}
+}
+
+function speak(){
+speechSynthesis.speak(new SpeechSynthesisUtterance(document.getElementById("res").innerText));
+}
+
+/* MATH */
+let expr="";
+function addSymbol(v){expr+=v;document.getElementById("expr").value=expr;}
+function clearExpr(){expr="";document.getElementById("expr").value="";}
+function calculate(){document.getElementById("r1").innerText=eval(expr);expr="";}
+
+function getAllTrig(){
+let a=parseFloat(document.getElementById("ang").value);
+let r=a*Math.PI/180;
+document.getElementById("r2").innerHTML=
+"sin:"+Math.sin(r)+"<br>cos:"+Math.cos(r)+"<br>tan:"+Math.tan(r);
+}
+
+function shape(t){
+if(t=="rect"){
+let l=prompt("Length:");
+let w=prompt("Width:");
+document.getElementById("r3").innerHTML="Area:"+l*w;
+}
+if(t=="square"){
+let s=prompt("Side:");
+document.getElementById("r3").innerHTML="Area:"+s*s;
+}
+if(t=="circle"){
+let r=prompt("Radius:");
+document.getElementById("r3").innerHTML="Area:"+(Math.PI*r*r).toFixed(2);
+}
+if(t=="triangle"){
+let a=prompt("A:");
+let b=prompt("B:");
+let c=prompt("C:");
+document.getElementById("r3").innerHTML="Perimeter:"+(+a + +b + +c);
+}
+if(t=="tube"){
+let r=prompt("Radius:");
+let h=prompt("Height:");
+document.getElementById("r3").innerHTML="Volume:"+(Math.PI*r*r*h).toFixed(2);
+}
+}
+
+/* BACKGROUND */
+const backgrounds=[
+"https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+"https://images.unsplash.com/photo-1588072432836-e10032774350",
+"https://images.unsplash.com/photo-1581090700227-1e37b190418e",
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+"https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0"
+];
+
+let i=0;
+setInterval(()=>{
+document.getElementById("bg").style.backgroundImage="url('"+backgrounds[i]+"')";
+i=(i+1)%backgrounds.length;
+},5000);
+
+</script>
+
+</body>
+</html>
