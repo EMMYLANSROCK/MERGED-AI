@@ -164,6 +164,7 @@ border-radius:15px;
 <input id="word" placeholder="type verb">
 
 <button onclick="smartAI()">Search</button>
+  <button onclick="showExamples()">Examples</button>
 <button onclick="speak()">🔊 Speak</button>
 
 <div class="result" id="res">Ready...</div>
@@ -335,7 +336,7 @@ think:{present:"think",past:"thought",future:"will think",continuous:"thinking",
 eat:{present:"eat",past:"ate",future:"will eat",continuous:"eating",rw:"kurya"},
 drink:{present:"drink",past:"drank",future:"will drink",continuous:"drinking",rw:"kunywa"},
 run:{present:"run",past:"ran",future:"will run",continuous:"running",rw:"kwiruka"},
-walk:{present:"walk",past:"walked",future:"will walk",continuous:"walking",rw:"kugenda"}
+walk:{present:"walk",past:"walked",future:"will walk",continuous:"walking",rw:"kugenda"},
   abandon:{present:"abandon",past:"abandoned",future:"will abandon",continuous:"abandoning",rw:"gutererana"},
   abolish:{present:"abolish",past:"abolished",future:"will abolish",continuous:"abolishing",rw:"kuvanaho"},
   absorb:{present:"absorb",past:"absorbed",future:"will absorb",continuous:"absorbing",rw:"kwinjiza"},
@@ -645,7 +646,8 @@ afford:{present:"afford",past:"afforded",future:"will afford",continuous:"afford
 invest:{present:"invest",past:"invested",future:"will invest",continuous:"investing",rw:"gushora imari"},
 waste:{present:"waste",past:"wasted",future:"will waste",continuous:"wasting",rw:"gusesagura"},
 collect:{present:"collect",past:"collected",future:"will collect",continuous:"collecting",rw:"gukusanya"},
-gather:{present:"gather",past:"gathered",future:"will gather",continuous:"gathering",rw:"guteranya"} };
+gather:{present:"gather",past:"gathered",future:"will gather",continuous:"gathering",rw:"guteranya"},
+  };
 
 function smartAI(){
 let v=document.getElementById("word").value.toLowerCase().trim();
