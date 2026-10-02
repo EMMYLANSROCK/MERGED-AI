@@ -224,6 +224,985 @@ border-radius:15px;
 </div>
 
 <script>
+function showExamples() {
+  const input = document.querySelector('#home input');
+  const output = document.getElementById("res");
+
+  if (!input || !output) {
+    alert("Search input or result area not found.");
+    return;
+  }
+
+  const word = input.value.trim().toLowerCase();
+
+  const examples = {
+ask: {
+  present: "I ask questions in class.",
+  past: "I asked a question yesterday.",
+  future: "I will ask a question tomorrow.",
+  continuous: "I am asking a question now."
+},
+answer: {
+  present: "I answer questions every day.",
+  past: "I answered the question yesterday.",
+  future: "I will answer it tomorrow.",
+  continuous: "I am answering the question now."
+},
+arrive: {
+  present: "I arrive at school early.",
+  past: "I arrived late yesterday.",
+  future: "I will arrive early tomorrow.",
+  continuous: "I am arriving at school now."
+},
+agree: {
+  present: "I agree with my teacher.",
+  past: "I agreed with her yesterday.",
+  future: "I will agree if the plan works.",
+  continuous: "I am agreeing to the new terms."
+},
+allow: {
+  present: "They allow students to ask questions.",
+  past: "They allowed us to enter.",
+  future: "They will allow visitors tomorrow.",
+  continuous: "They are allowing more students in."
+},
+appear: {
+  present: "Stars appear at night.",
+  past: "A rainbow appeared yesterday.",
+  future: "The results will appear tomorrow.",
+  continuous: "The sun is appearing through the clouds."
+},
+believe: {
+  present: "I believe your story.",
+  past: "I believed him yesterday.",
+  future: "I will believe you when I see proof.",
+  continuous: "I am beginning to believe the story."
+},
+belong: {
+  present: "This book belongs to me.",
+  past: "The bag belonged to my brother.",
+  future: "This prize will belong to the winner.",
+  continuous: "The book is belonging to the collection."
+},
+borrow: {
+  present: "I borrow books from the library.",
+  past: "I borrowed a pen yesterday.",
+  future: "I will borrow a book tomorrow.",
+  continuous: "I am borrowing a dictionary now."
+},
+breathe: {
+  present: "I breathe fresh air every morning.",
+  past: "I breathed slowly yesterday.",
+  future: "I will breathe deeply before the race.",
+  continuous: "I am breathing slowly now."
+},
+burn: {
+  present: "Dry wood burns quickly.",
+  past: "The candle burned all night.",
+  future: "The fire will burn for a while.",
+  continuous: "The candle is burning now."
+},
+call: {
+  present: "I call my grandmother every week.",
+  past: "I called her yesterday.",
+  future: "I will call her tomorrow.",
+  continuous: "I am calling her now."
+},
+carry: {
+  present: "I carry my bag to school.",
+  past: "I carried the boxes yesterday.",
+  future: "I will carry your bag tomorrow.",
+  continuous: "I am carrying the books now."
+},
+catch: {
+  present: "I catch the bus every morning.",
+  past: "I caught the bus yesterday.",
+  future: "I will catch the next bus.",
+  continuous: "I am catching the ball."
+},
+celebrate: {
+  present: "We celebrate birthdays together.",
+  past: "We celebrated her birthday yesterday.",
+  future: "We will celebrate tomorrow.",
+  continuous: "We are celebrating her success."
+},
+change: {
+  present: "I change my clothes every day.",
+  past: "I changed my plans yesterday.",
+  future: "I will change the schedule tomorrow.",
+  continuous: "I am changing my clothes now."
+},
+check: {
+  present: "I check my answers carefully.",
+  past: "I checked my work yesterday.",
+  future: "I will check the results tomorrow.",
+  continuous: "I am checking my answers now."
+},
+climb: {
+  present: "They climb the hill every year.",
+  past: "They climbed the hill yesterday.",
+  future: "They will climb the hill tomorrow.",
+  continuous: "They are climbing the hill now."
+},
+compare: {
+  present: "I compare prices before buying.",
+  past: "I compared the two books yesterday.",
+  future: "I will compare the results tomorrow.",
+  continuous: "I am comparing the pictures now."
+},
+complain: {
+  present: "Some customers complain about delays.",
+  past: "He complained yesterday.",
+  future: "She will complain if the service is poor.",
+  continuous: "He is complaining about the noise."
+},
+complete: {
+  present: "I complete my tasks on time.",
+  past: "I completed the assignment yesterday.",
+  future: "I will complete it tomorrow.",
+  continuous: "I am completing the assignment now."
+},
+consider: {
+  present: "I consider every suggestion.",
+  past: "I considered your idea yesterday.",
+  future: "I will consider the offer tomorrow.",
+  continuous: "I am considering your proposal."
+},
+continue: {
+  present: "I continue studying every evening.",
+  past: "I continued working yesterday.",
+  future: "I will continue tomorrow.",
+  continuous: "I am continuing my studies."
+},
+create: {
+  present: "I create drawings in my notebook.",
+  past: "I created a poster yesterday.",
+  future: "I will create a new design tomorrow.",
+  continuous: "I am creating a poster now."
+},
+cry: {
+  present: "Babies cry when they are hungry.",
+  past: "The baby cried last night.",
+  future: "The baby will cry if it is tired.",
+  continuous: "The baby is crying now."
+},
+decide: {
+  present: "I decide carefully.",
+  past: "I decided yesterday.",
+  future: "I will decide tomorrow.",
+  continuous: "I am deciding what to study."
+},
+deliver: {
+  present: "They deliver letters every morning.",
+  past: "They delivered the package yesterday.",
+  future: "They will deliver it tomorrow.",
+  continuous: "They are delivering the package now."
+},
+depend: {
+  present: "Success depends on effort.",
+  past: "The result depended on the weather.",
+  future: "The plan will depend on our budget.",
+  continuous: "The project is depending on outside support."
+},
+describe: {
+  present: "I describe pictures in English.",
+  past: "I described the event yesterday.",
+  future: "I will describe the place tomorrow.",
+  continuous: "I am describing the picture now."
+},
+develop: {
+  present: "Children develop new skills.",
+  past: "She developed a new idea.",
+  future: "We will develop the project next year.",
+  continuous: "We are developing a new application."
+},
+discover: {
+  present: "Scientists discover new things.",
+  past: "They discovered a new plant.",
+  future: "We will discover more details tomorrow.",
+  continuous: "They are discovering new information."
+},
+discuss: {
+  present: "We discuss lessons in class.",
+  past: "We discussed the topic yesterday.",
+  future: "We will discuss it tomorrow.",
+  continuous: "We are discussing the topic now."
+},
+divide: {
+  present: "I divide the work equally.",
+  past: "I divided the cake yesterday.",
+  future: "I will divide the class into groups.",
+  continuous: "I am dividing the papers now."
+},
+drop: {
+  present: "I drop coins into the box.",
+  past: "I dropped my pencil yesterday.",
+  future: "I will drop the package off tomorrow.",
+  continuous: "I am dropping the papers into the box."
+},
+earn: {
+  present: "She earns money from her work.",
+  past: "She earned money last month.",
+  future: "She will earn more next year.",
+  continuous: "She is earning money now."
+},
+encourage: {
+  present: "Teachers encourage students to learn.",
+  past: "My teacher encouraged me yesterday.",
+  future: "I will encourage my friend tomorrow.",
+  continuous: "They are encouraging the team."
+},
+enjoy: {
+  present: "I enjoy reading stories.",
+  past: "I enjoyed the lesson yesterday.",
+  future: "I will enjoy the trip tomorrow.",
+  continuous: "I am enjoying the music."
+},
+enter: {
+  present: "I enter the classroom quietly.",
+  past: "I entered the room yesterday.",
+  future: "I will enter the competition tomorrow.",
+  continuous: "I am entering the building now."
+},
+escape: {
+  present: "Birds sometimes escape from cages.",
+  past: "The bird escaped yesterday.",
+  future: "The animal will escape if the gate is open.",
+  continuous: "The cat is escaping through the gate."
+},
+expect: {
+  present: "I expect good results.",
+  past: "I expected a visitor yesterday.",
+  future: "I will expect your reply tomorrow.",
+  continuous: "I am expecting a delivery."
+},
+explain: {
+  present: "Teachers explain difficult ideas.",
+  past: "She explained the lesson yesterday.",
+  future: "I will explain it tomorrow.",
+  continuous: "He is explaining the rules now."
+},
+fail: {
+  present: "Sometimes students fail tests.",
+  past: "He failed the test yesterday.",
+  future: "I will not fail if I prepare.",
+  continuous: "The machine is failing again."
+},
+fill: {
+  present: "I fill my bottle with water.",
+  past: "I filled the bottle yesterday.",
+  future: "I will fill the form tomorrow.",
+  continuous: "I am filling the form now."
+},
+finish: {
+  present: "I finish school at four o'clock.",
+  past: "I finished my work yesterday.",
+  future: "I will finish the task tomorrow.",
+  continuous: "I am finishing my homework now."
+},
+follow: {
+  present: "I follow the instructions carefully.",
+  past: "I followed the directions yesterday.",
+  future: "I will follow your advice.",
+  continuous: "I am following the guide now."
+},
+forgive: {
+  present: "I forgive people who apologize.",
+  past: "She forgave her friend.",
+  future: "I will forgive him when he apologizes.",
+  continuous: "She is learning to forgive."
+},
+grow: {
+  present: "Plants grow in good soil.",
+  past: "The plant grew quickly last year.",
+  future: "The tree will grow taller.",
+  continuous: "The plants are growing well."
+},
+guess: {
+  present: "I guess the answer sometimes.",
+  past: "I guessed correctly yesterday.",
+  future: "I will guess the answer.",
+  continuous: "I am guessing the answer now."
+},
+happen: {
+  present: "Accidents happen unexpectedly.",
+  past: "The event happened yesterday.",
+  future: "The meeting will happen tomorrow.",
+  continuous: "Something unusual is happening now."
+},
+hate: {
+  present: "I hate wasting time.",
+  past: "I hated that noise yesterday.",
+  future: "I will hate missing the event.",
+  continuous: "I am beginning to hate this noise."
+},
+hide: {
+  present: "Children hide during the game.",
+  past: "He hid behind the door.",
+  future: "I will hide the gift until tomorrow.",
+  continuous: "The children are hiding now."
+},
+hit: {
+  present: "The player hits the ball carefully.",
+  past: "He hit the ball yesterday.",
+  future: "She will hit the ball next.",
+  continuous: "He is hitting the ball now."
+},
+hold: {
+  present: "I hold the door for others.",
+  past: "I held the baby yesterday.",
+  future: "I will hold the meeting tomorrow.",
+  continuous: "I am holding the book now."
+},
+hope: {
+  present: "I hope for good results.",
+  past: "I hoped for success.",
+  future: "I will hope for the best.",
+  continuous: "I am hoping for good news."
+},
+imagine: {
+  present: "I imagine new stories.",
+  past: "I imagined a different ending.",
+  future: "I will imagine new possibilities.",
+  continuous: "I am imagining a new world."
+},
+improve: {
+  present: "I improve my English every day.",
+  past: "I improved my writing last month.",
+  future: "I will improve with practice.",
+  continuous: "I am improving my skills."
+},
+include: {
+  present: "The list includes ten names.",
+  past: "The list included my name.",
+  future: "The plan will include everyone.",
+  continuous: "We are including more examples."
+},
+increase: {
+  present: "Prices increase from time to time.",
+  past: "The price increased last month.",
+  future: "The number will increase next year.",
+  continuous: "The number is increasing now."
+},
+introduce: {
+  present: "I introduce myself to new students.",
+  past: "She introduced her friend yesterday.",
+  future: "I will introduce the speaker tomorrow.",
+  continuous: "He is introducing the new student."
+},
+invite: {
+  present: "I invite my friends to parties.",
+  past: "I invited her yesterday.",
+  future: "I will invite them tomorrow.",
+  continuous: "I am inviting guests now."
+},
+join: {
+  present: "I join the club every year.",
+  past: "I joined the team last month.",
+  future: "I will join the meeting tomorrow.",
+  continuous: "I am joining the online class now."
+},
+jump: {
+  present: "The children jump over the line.",
+  past: "The child jumped yesterday.",
+  future: "The athlete will jump again.",
+  continuous: "The children are jumping now."
+},
+kick: {
+  present: "I kick the ball during practice.",
+  past: "He kicked the ball yesterday.",
+  future: "She will kick the ball next.",
+  continuous: "He is kicking the ball now."
+},
+laugh: {
+  present: "We laugh at funny stories.",
+  past: "We laughed at the joke yesterday.",
+  future: "We will laugh together again.",
+  continuous: "They are laughing now."
+},
+lend: {
+  present: "I lend books to my classmates.",
+  past: "I lent him my pen yesterday.",
+  future: "I will lend you my book tomorrow.",
+  continuous: "I am lending her my notes."
+},
+lie: {
+  present: "I lie on the sofa to rest.",
+  past: "I lay on the sofa yesterday.",
+  future: "I will lie down after lunch.",
+  continuous: "I am lying on the bed now."
+},
+lose: {
+  present: "I sometimes lose my pencils.",
+  past: "I lost my keys yesterday.",
+  future: "I will lose time if I delay.",
+  continuous: "I am losing my patience."
+},
+marry: {
+  present: "They marry according to their traditions.",
+  past: "They married last year.",
+  future: "They will marry next year.",
+  continuous: "They are getting married this month."
+},
+measure: {
+  present: "I measure the table before buying a cloth.",
+  past: "I measured the room yesterday.",
+  future: "I will measure the window tomorrow.",
+  continuous: "I am measuring the desk now."
+},
+miss: {
+  present: "I miss the bus sometimes.",
+  past: "I missed the bus yesterday.",
+  future: "I will miss the show if I arrive late.",
+  continuous: "I am missing my family."
+},
+move: {
+  present: "I move my chair every morning.",
+  past: "I moved the table yesterday.",
+  future: "I will move to a new house next month.",
+  continuous: "I am moving the boxes now."
+},
+notice: {
+  present: "I notice small details.",
+  past: "I noticed the mistake yesterday.",
+  future: "I will notice the difference.",
+  continuous: "I am noticing some changes."
+},
+offer: {
+  present: "They offer free lessons.",
+  past: "She offered me some help.",
+  future: "I will offer my assistance tomorrow.",
+  continuous: "He is offering help now."
+},
+order: {
+  present: "We order food at the restaurant.",
+  past: "We ordered lunch yesterday.",
+  future: "We will order dinner later.",
+  continuous: "I am ordering food now."
+},
+organize: {
+  present: "I organize my books every week.",
+  past: "I organized the meeting yesterday.",
+  future: "I will organize the files tomorrow.",
+  continuous: "I am organizing my desk now."
+},
+paint: {
+  present: "I paint pictures on weekends.",
+  past: "I painted the wall yesterday.",
+  future: "I will paint the fence tomorrow.",
+  continuous: "I am painting a picture now."
+},
+pass: {
+  present: "I pass the library every day.",
+  past: "I passed the exam last year.",
+  future: "I will pass the ball to you.",
+  continuous: "I am passing the shop now."
+},
+plan: {
+  present: "I plan my week every Sunday.",
+  past: "I planned the trip yesterday.",
+  future: "I will plan the event tomorrow.",
+  continuous: "I am planning my project now."
+},
+prepare: {
+  present: "I prepare my lessons every evening.",
+  past: "I prepared dinner yesterday.",
+  future: "I will prepare for the exam tomorrow.",
+  continuous: "I am preparing my notes now."
+},
+promise: {
+  present: "I promise to tell the truth.",
+  past: "He promised to help me.",
+  future: "I will promise only what I can do.",
+  continuous: "She is promising to return soon."
+},
+protect: {
+  present: "Helmets protect our heads.",
+  past: "The guard protected the building.",
+  future: "We will protect the environment.",
+  continuous: "They are protecting the animals."
+},
+reach: {
+  present: "I reach school before eight.",
+  past: "I reached home yesterday.",
+  future: "I will reach the station tomorrow.",
+  continuous: "We are reaching the final stage."
+},
+receive: {
+  present: "I receive emails every day.",
+  past: "I received a letter yesterday.",
+  future: "I will receive the results tomorrow.",
+  continuous: "I am receiving your messages now."
+},
+remember: {
+  present: "I remember my teacher's advice.",
+  past: "I remembered his name yesterday.",
+  future: "I will remember this lesson.",
+  continuous: "I am remembering more details."
+},
+repair: {
+  present: "They repair bicycles in this shop.",
+  past: "He repaired my radio yesterday.",
+  future: "She will repair the chair tomorrow.",
+  continuous: "They are repairing the road now."
+},
+repeat: {
+  present: "I repeat new words aloud.",
+  past: "I repeated the sentence yesterday.",
+  future: "I will repeat the answer tomorrow.",
+  continuous: "I am repeating the instructions now."
+},
+return: {
+  present: "I return books to the library.",
+  past: "I returned home yesterday.",
+  future: "I will return the book tomorrow.",
+  continuous: "I am returning home now."
+},
+save: {
+  present: "I save money every month.",
+  past: "I saved my document yesterday.",
+  future: "I will save enough money next year.",
+  continuous: "I am saving my work now."
+},
+share: {
+  present: "I share my notes with classmates.",
+  past: "I shared my lunch yesterday.",
+  future: "I will share the news tomorrow.",
+  continuous: "I am sharing my screen now."
+},
+shout: {
+  present: "People shout during the game.",
+  past: "He shouted for help yesterday.",
+  future: "They will shout if they are excited.",
+  continuous: "The children are shouting outside."
+},
+show: {
+  present: "I show my work to the teacher.",
+  past: "I showed her the picture yesterday.",
+  future: "I will show you the results tomorrow.",
+  continuous: "I am showing the class my project."
+},
+smile: {
+  present: "I smile when I see my friends.",
+  past: "She smiled at me yesterday.",
+  future: "I will smile for the photograph.",
+  continuous: "The baby is smiling now."
+},
+solve: {
+  present: "I solve mathematics problems every day.",
+  past: "I solved the problem yesterday.",
+  future: "I will solve it tomorrow.",
+  continuous: "I am solving the problem now."
+},
+steal: {
+  present: "Stealing is against the law.",
+  past: "Someone stole a bicycle yesterday.",
+  future: "The police will investigate the theft.",
+  continuous: "The thief is stealing a bag."
+},
+throw: {
+  present: "I throw the ball to my friend.",
+  past: "I threw the ball yesterday.",
+  future: "I will throw the ball next.",
+  continuous: "I am throwing the ball now."
+},
+touch: {
+  present: "I touch the screen to open the app.",
+  past: "I touched the button yesterday.",
+  future: "I will touch the screen again.",
+  continuous: "I am touching the screen now."
+},
+travel: {
+  present: "I travel during school holidays.",
+  past: "I traveled last month.",
+  future: "I will travel next year.",
+  continuous: "I am traveling by bus now."
+},
+trust: {
+  present: "I trust my close friends.",
+  past: "I trusted his advice.",
+  future: "I will trust you if you are honest.",
+  continuous: "I am learning to trust again."
+},
+visit: {
+  present: "I visit my grandparents every month.",
+  past: "I visited them last weekend.",
+  future: "I will visit them tomorrow.",
+  continuous: "I am visiting my aunt now."
+},
+vote: {
+  present: "Citizens vote in elections.",
+  past: "They voted in the last election.",
+  future: "They will vote in the next election.",
+  continuous: "People are voting today."
+},
+win: {
+  present: "Our team wins many matches.",
+  past: "Our team won yesterday.",
+  future: "Our team will try to win tomorrow.",
+  continuous: "Our team is winning now."
+},
+wish: {
+  present: "I wish everyone success.",
+  past: "I wished her good luck yesterday.",
+  future: "I will wish him well tomorrow.",
+  continuous: "I am wishing you success."
+},
+wonder: {
+  present: "I wonder about the future.",
+  past: "I wondered about the answer yesterday.",
+  future: "I will wonder about it later.",
+  continuous: "I am wondering what happened."
+},
+worry: {
+  present: "I worry about exams sometimes.",
+  past: "I worried about the test yesterday.",
+  future: "I will not worry about it tomorrow.",
+  continuous: "I am worrying about the results."
+}
+    read: {
+      present: "I read books every day.",
+      past: "I read a book yesterday.",
+      future: "I will read a book tomorrow.",
+      continuous: "I am reading a book now."
+    },
+write: {
+  present: "I write letters every week.",
+  past: "I wrote a letter yesterday.",
+  future: "I will write a letter tomorrow.",
+  continuous: "I am writing a letter now."
+},
+eat: {
+  present: "I eat breakfast every morning.",
+  past: "I ate breakfast yesterday.",
+  future: "I will eat breakfast tomorrow.",
+  continuous: "I am eating breakfast now."
+},
+drink: {
+  present: "I drink water every day.",
+  past: "I drank water yesterday.",
+  future: "I will drink water tomorrow.",
+  continuous: "I am drinking water now."
+},
+go: {
+  present: "I go to school every day.",
+  past: "I went to school yesterday.",
+  future: "I will go to school tomorrow.",
+  continuous: "I am going to school now."
+},
+come: {
+  present: "I come home early every day.",
+  past: "I came home early yesterday.",
+  future: "I will come home early tomorrow.",
+  continuous: "I am coming home now."
+},
+see: {
+  present: "I see my friends every day.",
+  past: "I saw my friend yesterday.",
+  future: "I will see my friend tomorrow.",
+  continuous: "I am seeing the doctor now."
+},
+do: {
+  present: "I do my homework every day.",
+  past: "I did my homework yesterday.",
+  future: "I will do my homework tomorrow.",
+  continuous: "I am doing my homework now."
+},
+make: {
+  present: "I make cakes every Sunday.",
+  past: "I made a cake yesterday.",
+  future: "I will make a cake tomorrow.",
+  continuous: "I am making a cake now."
+},
+take: {
+  present: "I take the bus every day.",
+  past: "I took the bus yesterday.",
+  future: "I will take the bus tomorrow.",
+  continuous: "I am taking the bus now."
+},
+give: {
+  present: "I give books to my friends.",
+  past: "I gave him a book yesterday.",
+  future: "I will give him a book tomorrow.",
+  continuous: "I am giving him a book now."
+},
+get: {
+  present: "I get up early every day.",
+  past: "I got up early yesterday.",
+  future: "I will get up early tomorrow.",
+  continuous: "I am getting ready now."
+},
+run: {
+  present: "I run every morning.",
+  past: "I ran yesterday.",
+  future: "I will run tomorrow.",
+  continuous: "I am running now."
+},
+walk: {
+  present: "I walk to school every day.",
+  past: "I walked to school yesterday.",
+  future: "I will walk to school tomorrow.",
+  continuous: "I am walking now."
+},
+play: {
+  present: "I play football every weekend.",
+  past: "I played football yesterday.",
+  future: "I will play football tomorrow.",
+  continuous: "I am playing football now."
+},
+study: {
+  present: "I study English every day.",
+  past: "I studied English yesterday.",
+  future: "I will study English tomorrow.",
+  continuous: "I am studying English now."
+},
+learn: {
+  present: "I learn new words every day.",
+  past: "I learned a new word yesterday.",
+  future: "I will learn more tomorrow.",
+  continuous: "I am learning English now."
+},
+teach: {
+  present: "I teach English every day.",
+  past: "I taught English yesterday.",
+  future: "I will teach English tomorrow.",
+  continuous: "I am teaching English now."
+},
+buy: {
+  present: "I buy food every week.",
+  past: "I bought food yesterday.",
+  future: "I will buy food tomorrow.",
+  continuous: "I am buying food now."
+},
+sell: {
+  present: "They sell clothes every day.",
+  past: "They sold clothes yesterday.",
+  future: "They will sell clothes tomorrow.",
+  continuous: "They are selling clothes now."
+},
+sleep: {
+  present: "I sleep early every night.",
+  past: "I slept early yesterday.",
+  future: "I will sleep early tonight.",
+  continuous: "I am sleeping now."
+},
+wake: {
+  present: "I wake up early every day.",
+  past: "I woke up early yesterday.",
+  future: "I will wake up early tomorrow.",
+  continuous: "I am waking up now."
+},
+cook: {
+  present: "I cook dinner every evening.",
+  past: "I cooked dinner yesterday.",
+  future: "I will cook dinner tomorrow.",
+  continuous: "I am cooking dinner now."
+},
+clean: {
+  present: "I clean my room every week.",
+  past: "I cleaned my room yesterday.",
+  future: "I will clean my room tomorrow.",
+  continuous: "I am cleaning my room now."
+},
+work: {
+  present: "I work every weekday.",
+  past: "I worked yesterday.",
+  future: "I will work tomorrow.",
+  continuous: "I am working now."
+},
+help: {
+  present: "I help my parents every day.",
+  past: "I helped my friend yesterday.",
+  future: "I will help you tomorrow.",
+  continuous: "I am helping my mother now."
+},
+open: {
+  present: "I open the door every morning.",
+  past: "I opened the door yesterday.",
+  future: "I will open the door tomorrow.",
+  continuous: "I am opening the door now."
+},
+close: {
+  present: "I close the window every evening.",
+  past: "I closed the window yesterday.",
+  future: "I will close the window tomorrow.",
+  continuous: "I am closing the window now."
+},
+speak: {
+  present: "I speak English every day.",
+  past: "I spoke English yesterday.",
+  future: "I will speak English tomorrow.",
+  continuous: "I am speaking English now."
+},
+listen: {
+  present: "I listen to music every day.",
+  past: "I listened to music yesterday.",
+  future: "I will listen to music tomorrow.",
+  continuous: "I am listening to music now."
+},
+hear: {
+  present: "I hear birds every morning.",
+  past: "I heard a bird yesterday.",
+  future: "I will hear the news tomorrow.",
+  continuous: "I am hearing a strange sound."
+},
+watch: {
+  present: "I watch television every evening.",
+  past: "I watched a movie yesterday.",
+  future: "I will watch a movie tomorrow.",
+  continuous: "I am watching television now."
+},
+look: {
+  present: "I look at the board every day.",
+  past: "I looked at the board yesterday.",
+  future: "I will look at the picture tomorrow.",
+  continuous: "I am looking at the picture now."
+},
+find: {
+  present: "I find useful books in the library.",
+  past: "I found my pen yesterday.",
+  future: "I will find the answer tomorrow.",
+  continuous: "I am finding new ways to learn."
+},
+think: {
+  present: "I think about my future every day.",
+  past: "I thought about the question yesterday.",
+  future: "I will think about it tomorrow.",
+  continuous: "I am thinking about the answer now."
+},
+know: {
+  present: "I know the answer.",
+  past: "I knew the answer yesterday.",
+  future: "I will know the results tomorrow.",
+  continuous: "I am getting to know my classmates."
+},
+understand: {
+  present: "I understand the lesson.",
+  past: "I understood the lesson yesterday.",
+  future: "I will understand it after practice.",
+  continuous: "I am understanding the topic better."
+},
+bring: {
+  present: "I bring my books to school.",
+  past: "I brought my books yesterday.",
+  future: "I will bring my books tomorrow.",
+  continuous: "I am bringing my books now."
+},
+send: {
+  present: "I send messages every day.",
+  past: "I sent a message yesterday.",
+  future: "I will send a message tomorrow.",
+  continuous: "I am sending a message now."
+},
+build: {
+  present: "They build houses every year.",
+  past: "They built a house last year.",
+  future: "They will build a house next year.",
+  continuous: "They are building a house now."
+},
+break: {
+  present: "I break old boxes for recycling.",
+  past: "I broke a cup yesterday.",
+  future: "I will break the old box apart tomorrow.",
+  continuous: "I am breaking the chocolate into pieces."
+},
+choose: {
+  present: "I choose a book every week.",
+  past: "I chose a book yesterday.",
+  future: "I will choose a book tomorrow.",
+  continuous: "I am choosing a new book now."
+},
+drive: {
+  present: "I drive to work every day.",
+  past: "I drove to work yesterday.",
+  future: "I will drive tomorrow.",
+  continuous: "I am driving to work now."
+},
+draw: {
+  present: "I draw pictures every weekend.",
+  past: "I drew a picture yesterday.",
+  future: "I will draw a picture tomorrow.",
+  continuous: "I am drawing a picture now."
+},
+sing: {
+  present: "I sing in the choir every Sunday.",
+  past: "I sang a song yesterday.",
+  future: "I will sing tomorrow.",
+  continuous: "I am singing a song now."
+},
+dance: {
+  present: "I dance at parties.",
+  past: "I danced yesterday.",
+  future: "I will dance tomorrow.",
+  continuous: "I am dancing now."
+},
+swim: {
+  present: "I swim every Saturday.",
+  past: "I swam yesterday.",
+  future: "I will swim tomorrow.",
+  continuous: "I am swimming now."
+},
+wash: {
+  present: "I wash my clothes every week.",
+  past: "I washed my clothes yesterday.",
+  future: "I will wash my clothes tomorrow.",
+  continuous: "I am washing my clothes now."
+},
+wait: {
+  present: "I wait for the bus every morning.",
+  past: "I waited for the bus yesterday.",
+  future: "I will wait for you tomorrow.",
+  continuous: "I am waiting for the bus now."
+},
+live: {
+  present: "I live in Rwanda.",
+  past: "I lived in Kigali last year.",
+  future: "I will live there next year.",
+  continuous: "I am living with my family now."
+},
+love: {
+  present: "I love my family.",
+  past: "I loved that book.",
+  future: "I will love learning English.",
+  continuous: "I am loving this experience."
+},
+
+    collect: {
+      present: "I collect books every week.",
+      past: "I collected books yesterday.",
+      future: "I will collect books tomorrow.",
+      continuous: "I am collecting books now."
+    },
+    gather: {
+      present: "We gather information every day.",
+      past: "We gathered information yesterday.",
+      future: "We will gather information tomorrow.",
+      continuous: "We are gathering information now."
+    }
+  };
+
+  if (!word) {
+    output.textContent = "Please enter a verb first.";
+    return;
+  }
+
+  const ex = examples[word];
+
+  if (!ex) {
+    output.textContent =
+      "Examples are not available for this verb yet.";
+    return;
+  }
+
+  output.innerHTML = `
+    <h3>Examples of ${word}</h3>
+    <p><b>Present:</b> ${ex.present}</p>
+    <p><b>Past:</b> ${ex.past}</p>
+    <p><b>Future:</b> ${ex.future}</p>
+    <p><b>Continuous:</b> ${ex.continuous}</p>
+  `;
+}
+</script>
 
 /* NAV */
 function openPage(p){
