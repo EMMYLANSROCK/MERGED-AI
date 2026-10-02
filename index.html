@@ -236,6 +236,666 @@ function showExamples() {
   const word = input.value.trim().toLowerCase();
 
   const examples = {
+abandon: {
+  present: "They abandon old habits.",
+  past: "They abandoned the old plan yesterday.",
+  future: "They will abandon the project if necessary.",
+  continuous: "They are abandoning the old building."
+},
+absorb: {
+  present: "Plants absorb water through their roots.",
+  past: "The soil absorbed the rain.",
+  future: "The sponge will absorb the water.",
+  continuous: "The soil is absorbing moisture."
+},
+accompany: {
+  present: "I accompany my sister to school.",
+  past: "I accompanied her yesterday.",
+  future: "I will accompany my friend tomorrow.",
+  continuous: "I am accompanying my mother now."
+},
+accuse: {
+  present: "People accuse him of cheating.",
+  past: "They accused him yesterday.",
+  future: "They will accuse the wrong person.",
+  continuous: "She is accusing him of lying."
+},
+adapt: {
+  present: "Animals adapt to their environment.",
+  past: "The family adapted quickly.",
+  future: "We will adapt to the new system.",
+  continuous: "The students are adapting to the changes."
+},
+adjust: {
+  present: "I adjust my chair before working.",
+  past: "I adjusted the settings yesterday.",
+  future: "I will adjust the timetable tomorrow.",
+  continuous: "I am adjusting the screen brightness."
+},
+affect: {
+  present: "Weather affects our plans.",
+  past: "The rain affected the match.",
+  future: "The decision will affect everyone.",
+  continuous: "The noise is affecting my concentration."
+},
+aim: {
+  present: "I aim for good results.",
+  past: "She aimed at the target yesterday.",
+  future: "We will aim for better results.",
+  continuous: "He is aiming at the target."
+},
+amuse: {
+  present: "Funny stories amuse children.",
+  past: "The clown amused the audience.",
+  future: "The show will amuse the guests.",
+  continuous: "The comedian is amusing the audience."
+},
+analyze: {
+  present: "I analyze data every week.",
+  past: "I analyzed the results yesterday.",
+  future: "I will analyze the information tomorrow.",
+  continuous: "I am analyzing the data now."
+},
+applaud: {
+  present: "The audience applauds the performers.",
+  past: "The audience applauded yesterday.",
+  future: "We will applaud the winners.",
+  continuous: "The audience is applauding now."
+},
+appoint: {
+  present: "The school appoints class leaders.",
+  past: "They appointed a new leader yesterday.",
+  future: "They will appoint a manager tomorrow.",
+  continuous: "The committee is appointing new members."
+},
+approve: {
+  present: "The manager approves the plans.",
+  past: "She approved the request yesterday.",
+  future: "They will approve the proposal tomorrow.",
+  continuous: "The board is approving the new plan."
+},
+arrest: {
+  present: "Police arrest suspects when there is sufficient legal grounds.",
+  past: "Police arrested the suspect yesterday.",
+  future: "The officers will arrest the suspect if authorized.",
+  continuous: "The police are arresting a suspect."
+},
+assemble: {
+  present: "Workers assemble the machines.",
+  past: "They assembled the equipment yesterday.",
+  future: "We will assemble the furniture tomorrow.",
+  continuous: "They are assembling the machine now."
+},
+attempt: {
+  present: "I attempt difficult exercises.",
+  past: "I attempted the question yesterday.",
+  future: "I will attempt the test tomorrow.",
+  continuous: "I am attempting a new challenge."
+},
+attend: {
+  present: "I attend lessons every weekday.",
+  past: "I attended a meeting yesterday.",
+  future: "I will attend the ceremony tomorrow.",
+  continuous: "I am attending an online lesson."
+},
+attract: {
+  present: "Bright colors attract attention.",
+  past: "The advertisement attracted many customers.",
+  future: "The event will attract visitors.",
+  continuous: "The display is attracting attention."
+},
+balance: {
+  present: "I balance a book on my head.",
+  past: "I balanced the box yesterday.",
+  future: "I will balance the objects carefully.",
+  continuous: "She is balancing on one foot."
+},
+ban: {
+  present: "The school bans cheating.",
+  past: "The authorities banned the activity last year.",
+  future: "The school will ban dangerous behavior.",
+  continuous: "The organization is banning the practice."
+},
+beat: {
+  present: "Our team beats its rivals sometimes.",
+  past: "Our team beat its rivals yesterday.",
+  future: "Our team will try to beat them tomorrow.",
+  continuous: "The team is beating its opponents."
+},
+beg: {
+  present: "The child begs for another story.",
+  past: "He begged for help yesterday.",
+  future: "They will beg for another chance.",
+  continuous: "The child is begging for attention."
+},
+bleed: {
+  present: "Small cuts sometimes bleed.",
+  past: "His finger bled yesterday.",
+  future: "The wound may bleed again.",
+  continuous: "The cut is bleeding."
+},
+bless: {
+  present: "They bless their children.",
+  past: "The family blessed the new home.",
+  future: "They will bless the couple tomorrow.",
+  continuous: "The priest is blessing the family."
+},
+bloom: {
+  present: "Flowers bloom in spring.",
+  past: "The flowers bloomed last month.",
+  future: "The roses will bloom soon.",
+  continuous: "The flowers are blooming now."
+},
+boast: {
+  present: "He boasts about his achievements.",
+  past: "He boasted about his prize yesterday.",
+  future: "He will boast about the victory.",
+  continuous: "He is boasting about his success."
+},
+calculate: {
+  present: "I calculate distances in mathematics.",
+  past: "I calculated the distance yesterday.",
+  future: "I will calculate the total tomorrow.",
+  continuous: "I am calculating the distance now."
+},
+carve: {
+  present: "Artists carve designs into wood.",
+  past: "He carved a wooden spoon yesterday.",
+  future: "She will carve a new design.",
+  continuous: "The artist is carving a figure."
+},
+cherish: {
+  present: "I cherish memories of my childhood.",
+  past: "She cherished the gift.",
+  future: "I will cherish this moment.",
+  continuous: "They are cherishing their time together."
+},
+classify: {
+  present: "Scientists classify animals into groups.",
+  past: "We classified the books yesterday.",
+  future: "I will classify the documents tomorrow.",
+  continuous: "The students are classifying the plants."
+},
+combine: {
+  present: "I combine theory with practice.",
+  past: "We combined the ingredients yesterday.",
+  future: "I will combine the two lists.",
+  continuous: "They are combining the materials."
+},
+compete: {
+  present: "Athletes compete in tournaments.",
+  past: "She competed last year.",
+  future: "They will compete tomorrow.",
+  continuous: "The athletes are competing now."
+},
+compose: {
+  present: "I compose short poems.",
+  past: "I composed a song yesterday.",
+  future: "She will compose a new melody.",
+  continuous: "He is composing a letter."
+},
+conclude: {
+  present: "I conclude my reports with a summary.",
+  past: "We concluded the meeting yesterday.",
+  future: "They will conclude the discussion tomorrow.",
+  continuous: "The speaker is concluding the presentation."
+},
+conduct: {
+  present: "Scientists conduct experiments.",
+  past: "They conducted research last year.",
+  future: "We will conduct a survey tomorrow.",
+  continuous: "The team is conducting an experiment."
+},
+confirm: {
+  present: "I confirm appointments by email.",
+  past: "She confirmed the booking yesterday.",
+  future: "They will confirm the date tomorrow.",
+  continuous: "I am confirming the details now."
+},
+conquer: {
+  present: "The team conquers difficult challenges.",
+  past: "The army conquered the city long ago.",
+  future: "We will conquer this challenge together.",
+  continuous: "The team is conquering new challenges."
+},
+construct: {
+  present: "Workers construct roads and bridges.",
+  past: "They constructed a new classroom.",
+  future: "They will construct a library next year.",
+  continuous: "Workers are constructing a bridge."
+},
+consult: {
+  present: "I consult my teacher when confused.",
+  past: "I consulted a doctor yesterday.",
+  future: "I will consult an expert tomorrow.",
+  continuous: "She is consulting her supervisor."
+},
+consume: {
+  present: "People consume food every day.",
+  past: "The machine consumed a lot of energy.",
+  future: "The device will consume less power.",
+  continuous: "The engine is consuming fuel."
+},
+copy: {
+  present: "I copy notes into my notebook.",
+  past: "I copied the paragraph yesterday.",
+  future: "I will copy the file tomorrow.",
+  continuous: "I am copying the document now."
+},
+cough: {
+  present: "Some people cough when they have a cold.",
+  past: "He coughed during the lesson.",
+  future: "I may cough if the air is dusty.",
+  continuous: "The child is coughing now."
+},
+crack: {
+  present: "Dry soil cracks in hot weather.",
+  past: "The glass cracked yesterday.",
+  future: "The old wall may crack further.",
+  continuous: "The ice is cracking."
+},
+crawl: {
+  present: "Babies crawl before they walk.",
+  past: "The baby crawled yesterday.",
+  future: "The baby will crawl toward the toy.",
+  continuous: "The baby is crawling across the floor."
+},
+decorate: {
+  present: "We decorate the classroom for celebrations.",
+  past: "We decorated the room yesterday.",
+  future: "I will decorate the hall tomorrow.",
+  continuous: "They are decorating the classroom."
+},
+delay: {
+  present: "Heavy traffic delays buses.",
+  past: "The rain delayed the match.",
+  future: "The storm will delay our journey.",
+  continuous: "The problem is delaying the work."
+},
+demand: {
+  present: "Customers demand good service.",
+  past: "They demanded an explanation yesterday.",
+  future: "The workers will demand better conditions.",
+  continuous: "The crowd is demanding answers."
+},
+demonstrate: {
+  present: "Teachers demonstrate scientific experiments.",
+  past: "She demonstrated the method yesterday.",
+  future: "I will demonstrate the process tomorrow.",
+  continuous: "The instructor is demonstrating the technique."
+},
+deserve: {
+  present: "Hard-working students deserve recognition.",
+  past: "She deserved the award.",
+  future: "You will deserve praise for your effort.",
+  continuous: "He is earning the recognition he deserves."
+},
+detect: {
+  present: "Sensors detect movement.",
+  past: "The machine detected a problem yesterday.",
+  future: "The system will detect errors automatically.",
+  continuous: "The device is detecting a signal."
+},
+determine: {
+  present: "We determine the answer using evidence.",
+  past: "We determined the cause yesterday.",
+  future: "They will determine the date tomorrow.",
+  continuous: "The researchers are determining the results."
+},
+disappoint: {
+  present: "Broken promises disappoint people.",
+  past: "The result disappointed him yesterday.",
+  future: "The delay will disappoint some visitors.",
+  continuous: "The poor service is disappointing customers."
+},
+distribute: {
+  present: "Teachers distribute books to students.",
+  past: "They distributed food yesterday.",
+  future: "We will distribute the forms tomorrow.",
+  continuous: "The volunteers are distributing supplies."
+},
+edit: {
+  present: "I edit my essays carefully.",
+  past: "I edited the document yesterday.",
+  future: "I will edit the video tomorrow.",
+  continuous: "I am editing my assignment now."
+},
+emphasize: {
+  present: "Teachers emphasize the importance of reading.",
+  past: "The speaker emphasized safety yesterday.",
+  future: "I will emphasize the main points tomorrow.",
+  continuous: "She is emphasizing the key idea."
+},
+enable: {
+  present: "Technology enables people to communicate quickly.",
+  past: "The update enabled a new feature.",
+  future: "The change will enable faster access.",
+  continuous: "The team is enabling additional features."
+},
+establish: {
+  present: "The school establishes clear rules.",
+  past: "They established a club last year.",
+  future: "We will establish a new program.",
+  continuous: "The organization is establishing new offices."
+},
+estimate: {
+  present: "I estimate the cost before shopping.",
+  past: "I estimated the distance yesterday.",
+  future: "We will estimate the budget tomorrow.",
+  continuous: "I am estimating the total cost."
+},
+exceed: {
+  present: "The number exceeds our expectations.",
+  past: "Sales exceeded the target last month.",
+  future: "Demand will exceed supply soon.",
+  continuous: "The total is exceeding the limit."
+},
+exchange: {
+  present: "Students exchange ideas in class.",
+  past: "We exchanged books yesterday.",
+  future: "I will exchange the item tomorrow.",
+  continuous: "They are exchanging information now."
+},
+excuse: {
+  present: "I excuse small mistakes when appropriate.",
+  past: "She excused my late arrival.",
+  future: "The teacher will excuse the absence.",
+  continuous: "He is excusing the delay."
+},
+explore: {
+  present: "We explore new places during holidays.",
+  past: "We explored the town yesterday.",
+  future: "We will explore the museum tomorrow.",
+  continuous: "The students are exploring the garden."
+},
+export: {
+  present: "The country exports coffee.",
+  past: "The company exported goods last year.",
+  future: "They will export more products next year.",
+  continuous: "The company is exporting coffee."
+},
+face: {
+  present: "I face challenges with courage.",
+  past: "She faced a difficult question yesterday.",
+  future: "We will face new challenges tomorrow.",
+  continuous: "They are facing a difficult situation."
+},
+fasten: {
+  present: "I fasten my seat belt before driving.",
+  past: "I fastened the strap yesterday.",
+  future: "I will fasten the button tomorrow.",
+  continuous: "She is fastening her seat belt."
+},
+fear: {
+  present: "Some children fear the dark.",
+  past: "He feared the storm yesterday.",
+  future: "I will not fear the challenge.",
+  continuous: "She is fearing the worst."
+},
+file: {
+  present: "I file important documents carefully.",
+  past: "I filed the report yesterday.",
+  future: "I will file the application tomorrow.",
+  continuous: "I am filing the paperwork now."
+},
+filter: {
+  present: "This device filters dirty water.",
+  past: "We filtered the water yesterday.",
+  future: "The system will filter the liquid.",
+  continuous: "The machine is filtering the water."
+},
+finance: {
+  present: "The bank finances small businesses.",
+  past: "The organization financed the project.",
+  future: "They will finance the new building.",
+  continuous: "The company is financing the research."
+},
+focus: {
+  present: "I focus on my studies.",
+  past: "I focused on the task yesterday.",
+  future: "I will focus better tomorrow.",
+  continuous: "I am focusing on the lesson now."
+},
+forecast: {
+  present: "Experts forecast the weather.",
+  past: "They forecast heavy rain yesterday.",
+  future: "Experts will forecast tomorrow's conditions.",
+  continuous: "The team is forecasting future demand."
+},
+form: {
+  present: "Students form groups during activities.",
+  past: "We formed a team yesterday.",
+  future: "They will form a committee tomorrow.",
+  continuous: "The students are forming groups."
+},
+gather: {
+  present: "We gather information from books.",
+  past: "We gathered information yesterday.",
+  future: "We will gather more information tomorrow.",
+  continuous: "We are gathering information now."
+},
+generate: {
+  present: "The system generates reports automatically.",
+  past: "The program generated a report yesterday.",
+  future: "It will generate a new report tomorrow.",
+  continuous: "The computer is generating a report."
+},
+govern: {
+  present: "Laws govern how institutions operate.",
+  past: "The council governed the region.",
+  future: "The new rules will govern the process.",
+  continuous: "The committee is governing the organization."
+},
+graduate: {
+  present: "Students graduate after completing their studies.",
+  past: "She graduated last year.",
+  future: "He will graduate next year.",
+  continuous: "She is graduating this month."
+},
+grip: {
+  present: "I grip the handle firmly.",
+  past: "He gripped the rope yesterday.",
+  future: "I will grip the tool carefully.",
+  continuous: "She is gripping the handle."
+},
+heal: {
+  present: "Small wounds usually heal naturally.",
+  past: "The wound healed last week.",
+  future: "The injury will heal with time.",
+  continuous: "The wound is healing well."
+},
+highlight: {
+  present: "I highlight important words in my notes.",
+  past: "I highlighted the main points yesterday.",
+  future: "I will highlight the key ideas tomorrow.",
+  continuous: "I am highlighting the important sentences."
+},
+illustrate: {
+  present: "Pictures illustrate difficult concepts.",
+  past: "The teacher illustrated the idea yesterday.",
+  future: "I will illustrate the process tomorrow.",
+  continuous: "She is illustrating the story."
+},
+import: {
+  present: "The shop imports electronic equipment.",
+  past: "The company imported new machines last year.",
+  future: "They will import more goods next month.",
+  continuous: "The company is importing equipment."
+},
+inspect: {
+  present: "Workers inspect machines regularly.",
+  past: "The engineer inspected the machine yesterday.",
+  future: "They will inspect the building tomorrow.",
+  continuous: "The engineer is inspecting the equipment."
+},
+install: {
+  present: "I install useful applications on my computer.",
+  past: "I installed the program yesterday.",
+  future: "I will install the update tomorrow.",
+  continuous: "I am installing the software now."
+},
+instruct: {
+  present: "Teachers instruct students carefully.",
+  past: "The trainer instructed us yesterday.",
+  future: "She will instruct the new workers tomorrow.",
+  continuous: "He is instructing the class now."
+},
+interview: {
+  present: "The company interviews applicants every week.",
+  past: "They interviewed me yesterday.",
+  future: "I will interview the candidate tomorrow.",
+  continuous: "The manager is interviewing an applicant."
+},
+invest: {
+  present: "They invest money in their business.",
+  past: "She invested in the company last year.",
+  future: "We will invest more money next year.",
+  continuous: "They are investing in new technology."
+},
+irritate: {
+  present: "Loud noises irritate some people.",
+  past: "The noise irritated me yesterday.",
+  future: "The constant sound will irritate the neighbors.",
+  continuous: "The buzzing is irritating everyone."
+},
+jog: {
+  present: "I jog around the field every morning.",
+  past: "I jogged yesterday.",
+  future: "I will jog tomorrow morning.",
+  continuous: "I am jogging around the field now."
+},
+label: {
+  present: "I label my school notebooks.",
+  past: "I labeled the boxes yesterday.",
+  future: "I will label the files tomorrow.",
+  continuous: "I am labeling the folders now."
+},
+launch: {
+  present: "The company launches new products every year.",
+  past: "They launched the website yesterday.",
+  future: "They will launch the application tomorrow.",
+  continuous: "The team is launching a new service."
+},
+lead: {
+  present: "She leads the school club.",
+  past: "She led the meeting yesterday.",
+  future: "She will lead the team tomorrow.",
+  continuous: "She is leading the discussion."
+},
+leap: {
+  present: "Frogs leap across small streams.",
+  past: "The frog leaped into the water.",
+  future: "The athlete will leap over the barrier.",
+  continuous: "The frog is leaping across the pond."
+},
+maintain: {
+  present: "I maintain my computer regularly.",
+  past: "They maintained the road last year.",
+  future: "We will maintain the equipment tomorrow.",
+  continuous: "The workers are maintaining the road."
+},
+manufacture: {
+  present: "The factory manufactures school desks.",
+  past: "The factory manufactured new tools last year.",
+  future: "It will manufacture more products next year.",
+  continuous: "The factory is manufacturing new parts."
+},
+monitor: {
+  present: "Teachers monitor students' progress.",
+  past: "We monitored the system yesterday.",
+  future: "I will monitor the results tomorrow.",
+  continuous: "The technician is monitoring the network."
+},
+motivate: {
+  present: "Good teachers motivate their students.",
+  past: "The coach motivated the team yesterday.",
+  future: "I will motivate my classmates tomorrow.",
+  continuous: "She is motivating the students now."
+},
+negotiate: {
+  present: "Businesses negotiate contracts.",
+  past: "They negotiated the price yesterday.",
+  future: "We will negotiate the agreement tomorrow.",
+  continuous: "The two sides are negotiating a deal."
+},
+observe: {
+  present: "Scientists observe changes in nature.",
+  past: "We observed the birds yesterday.",
+  future: "I will observe the experiment tomorrow.",
+  continuous: "The students are observing the insects."
+},
+obtain: {
+  present: "I obtain information from reliable sources.",
+  past: "She obtained permission yesterday.",
+  future: "I will obtain the certificate tomorrow.",
+  continuous: "They are obtaining the necessary documents."
+},
+occupy: {
+  present: "Students occupy the front seats.",
+  past: "The group occupied the hall yesterday.",
+  future: "The event will occupy the entire afternoon.",
+  continuous: "The workers are occupying the meeting room."
+},
+overcome: {
+  present: "I overcome difficulties through practice.",
+  past: "She overcame her fear last year.",
+  future: "We will overcome this problem together.",
+  continuous: "They are overcoming many challenges."
+},
+participate: {
+  present: "I participate in school activities.",
+  past: "I participated in the competition yesterday.",
+  future: "I will participate next week.",
+  continuous: "She is participating in the discussion."
+},
+persuade: {
+  present: "I persuade my friends with good reasons.",
+  past: "He persuaded me yesterday.",
+  future: "She will persuade them to join.",
+  continuous: "He is persuading the group."
+},
+possess: {
+  present: "She possesses excellent communication skills.",
+  past: "He possessed a rare book.",
+  future: "She will possess the required skills after training.",
+  continuous: "She is developing the skills she needs."
+},
+predict: {
+  present: "Scientists predict changes in the climate.",
+  past: "They predicted rain yesterday.",
+  future: "Experts will predict future trends.",
+  continuous: "The system is predicting possible outcomes."
+},
+prevent: {
+  present: "Rules prevent common mistakes.",
+  past: "The barrier prevented access yesterday.",
+  future: "This measure will prevent further damage.",
+  continuous: "The new system is preventing errors."
+},
+process: {
+  present: "The computer processes information quickly.",
+  past: "The system processed the request yesterday.",
+  future: "It will process the application tomorrow.",
+  continuous: "The computer is processing the data."
+},
+promote: {
+  present: "The school promotes reading.",
+  past: "They promoted the event yesterday.",
+  future: "The company will promote its new service.",
+  continuous: "They are promoting the campaign."
+},
+prove: {
+  present: "I prove my answers with evidence.",
+  past: "She proved her point yesterday.",
+  future: "The experiment will prove the theory.",
+  continuous: "The team is proving its ability."
+},
+question: {
+  present: "Students question ideas respectfully.",
+  past: "I questioned the result yesterday.",
+  future: "We will question the decision tomorrow.",
+  continuous: "The reporter is questioning the witness."
+}
 ask: {
   present: "I ask questions in class.",
   past: "I asked a question yesterday.",
